@@ -1,0 +1,150 @@
+/* -------- VARIABLES -------- */
+
+:root {
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #6366f1;
+  --border: #e5e7eb;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+}
+
+/* -------- BASE -------- */
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+
+  padding: 30px 15px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* -------- HEADER -------- */
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* -------- FORM -------- */
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+/* -------- RESULT -------- */
+
+#result {
+  margin-top: 15px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* -------- LOADING -------- */
+
+.loading {
+  height: 4px;
+  width: 100%;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.loading::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background: var(--primary);
+  animation: load 1s infinite;
+}
+
+@keyframes load {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* -------- ERROR -------- */
+
+.error {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+}
+
+/* -------- THEME BUTTON -------- */
+
+#theme-toggle {
+  margin-top: 15px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+}
+
+/* -------- UTIL -------- */
+
+.hidden {
+  display: none;
+}
+
+/* -------- RESPONSIVE -------- */
+
+@media (max-width: 768px) {
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
